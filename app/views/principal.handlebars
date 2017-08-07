@@ -1,0 +1,79 @@
+<style>
+    table{
+    cellspacing: 0px;
+    cellpadding: 0px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    
+    tr, td, th{
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+</style>
+<h1>PLAYLIST</h1>
+<form action="/EditarPerfil" method="POST">
+<h2>Bienvenido señorísim@ {{data.0.nombres}} {{data.0.apellidos}} 
+    <input type="hidden" value={{data.0.id}} name="id">
+    <input type="submit" value="Editar perfil"></h2>
+</form>
+<form action="/Buscar" style="margin-bottom: 5px" method="post">
+<input type="hidden" value={{data.0.id}} name="id">
+<input type="text" placeholder="Inserte su busqueda" name="busqueda" autofocus>
+<input type="submit" value="Buscar" autofocus>
+</form>
+<form action="/Crear" method="POST">
+<table style="margin-bottom: 5px">
+        <input type="hidden" value={{data.0.id}} name="id">
+        <input type="hidden" value={{data.0.usuario}} name="user">
+        <input type="hidden" value={{data.0.password}} name="pass">
+    <tr>
+        <td><input type="text" placeholder="Nombre cancion" name="nCancion" required></td>
+        <td><input type="text" placeholder="Artista" name="artista" required></td>
+        <td><input type="text" placeholder="Album" name="album" required></td>
+        <td><input type="text" placeholder="3MB" name="tama" required></td>
+        <td><input type="text" placeholder="MP3, WAV, GSM" name="tipo" required></td>
+        <td><input type="submit" value="Guardar"></td>
+    </tr>
+</table></form>
+
+<table style="width: 76%">
+<tr>
+    <th style="width:17%">Nombre de la canción</th>
+    <th style="width:16%">Artista</th>
+    <th style="width:16%">Album</th>
+    <th style="width:20%">Tamaño</th>
+    <th style="width:20%">Tipo</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+</tr>
+{{#each lista}}
+<tr>
+    <td >{{nombreCancion}}</td>
+    <td >{{artista}}</td>
+    <td >{{album}}</td>
+    <td >{{tamaño}}</td>
+    <td >{{tipo}}</td>
+    <td><form action="/VistaEditar" method="post">
+        <input type="hidden" value={{id}} name="id">
+        <input type="submit" value="Editar">
+        </form>
+        </td>
+    <td><form action="/Eliminar" method="POST">
+            <input type="hidden" value={{idusuario}} name="user">
+            <input type="hidden" value={{id}} name="id">
+            <input type="submit" value="Eliminar">
+        </form>
+        </td>
+</tr>
+    
+{{/each}}
+</table>
+<form action="/Compartir" method="POST">
+<input type="hidden" value={{data.0.id}} name="id">
+<input type="submit" value="Comparte tu PLAYLIST" style="margin-top:5px">
+</form>
+<form action="/CompartirCon" method="POST">
+<input type="hidden" value={{data.0.id}} name="id">
+<input type="submit" value="PLAYLIST compartidas con migo" style="margin-top:5px">
+</form>

@@ -1,0 +1,32 @@
+<h1>Editar perfil</h1>
+<style>
+  th{
+    text-align: left
+  }
+</style>
+<form action="/UpdatePerfil" method="post">
+<table>
+  
+  <tr>
+    <th>Nombres</th>
+    <td><input type="text" value="{{data.0.nombres}}" name="nombre"></td>
+  </tr>
+  <tr>
+    <th>Apellidos</th>
+    <td><input type="text" value="{{data.0.apellidos}}" name="apellidos"></td>
+  </tr>
+  <tr>
+    <th>Usuario</th>
+    <td><input type="text" value="{{data.0.usuario}}" name="user"></td>
+  </tr>
+  <tr>
+    <th>Contraseña</th>
+    <td><input type="password" placeholder="Cambiar contraseña" name="pass"></td>
+  </tr>
+  <tr>
+    <input type="hidden" value={{data.0.id}} name="id">
+    <td><input type="submit" value="Guardar"></td>
+  </tr>
+  
+</table>
+</form>

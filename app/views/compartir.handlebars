@@ -1,0 +1,34 @@
+<style>
+    table{
+    cellspacing: 0px;
+    cellpadding: 0px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    tr, td, th{
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+</style>
+<h1>Compartir con usuarios</h1>
+<table>
+<tr>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Usuario</th>
+    <th>Compartir</th>
+</tr>
+{{#each lista}}
+<tr>
+    <td >{{nombres}}</td>
+    <td >{{apellidos}}</td>
+    <td >{{usuario}}</td>
+    <td><form action="/ICompartir" method="post">
+        <input type="hidden" value={{id}} name="id">
+        <input type="hidden" value={{data}} name="idCompartido">
+        <input type="submit" value="Compartir">
+        </form>
+        </td>
+</tr>
+{{/each}}
+</table>

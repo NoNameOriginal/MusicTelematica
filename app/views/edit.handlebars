@@ -1,0 +1,37 @@
+<h1>Editar</h1>
+<style>
+  th{
+    text-align: left
+  }
+</style>
+<form action="/Update" method="post">
+<table>
+  
+  <tr>
+    <th>Nombre de la canción</th>
+    <td><input type="text" value="{{data.0.nombreCancion}}" name="nCancion"></td>
+  </tr>
+  <tr>
+    <th>Artista</th>
+    <td><input type="text" value="{{data.0.artista}}" name="artisita"></td>
+  </tr>
+  <tr>
+    <th>Album</th>
+    <td><input type="text" value="{{data.0.album}}" name="album"></td>
+  </tr>
+  <tr>
+    <th>Tamaño</th>
+    <td><input type="text" value="{{data.0.tamaño}}" name="tama"></td>
+  </tr>
+  <tr>
+    <th>Tipo</th>
+    <td><input type="text" value="{{data.0.tipo}}" name="tipo"></td>
+  </tr>
+  <tr>
+    <input type="hidden" value={{data.0.idusuario}} name="user">
+    <input type="hidden" value={{data.0.id}} name="id">
+    <td><input type="submit" value="Guardar"></td>
+  </tr>
+  
+</table>
+</form>
